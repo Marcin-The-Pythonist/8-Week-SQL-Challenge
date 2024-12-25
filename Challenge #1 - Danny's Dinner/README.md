@@ -31,7 +31,7 @@ Improving the loyalty program and evaluating its results.
   ORDER BY customer_id
   ```
 
-  <li>How many days has each customer visited the restaurant?</li>
+  <h2><li>How many days have each customer visited the restaurant?</li></h2>
    <h3>Thought Process💭</h3>
   <ul>
     <li>Count visits by counting order dates per customer.r</li>
@@ -46,7 +46,7 @@ Improving the loyalty program and evaluating its results.
   ORDER BY customer_id
   ```
 
-  <li>What was the first item from the menu purchased by each customer?</li>
+  <h2><li>What was the first item from the menu purchased by each customer?</li></h2>
     <h3>Thought Process💭</h3>
   <ul>
     <li>Define data needed to answer the question: customer IDs and dish name.</li>
