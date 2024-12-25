@@ -32,7 +32,21 @@ Improving the loyalty program and evaluating its results.
   ```
 
   <li>How many days has each customer visited the restaurant?</li>
-  <li>What was the first item from the menu purchased by each customer?</li>
+   <h3>Thought Process💭</h3>
+  <ul>
+    <li>Count visits by counting order dates per customer</li>
+    <li>Realize that customer could order more than one product</li>
+    <li>Modify the approach by counting <b>unique<b> dates per customer</li>
+  </ul>
+  <h3>Code💻</h3>
+      
+  ```
+  SELECT customer_id, COUNT(DISTINCT(order_date)) FROM dannys_diner.sales
+  GROUP BY customer_id 
+  ORDER BY customer_id
+  ```
+
+  <li>item from the menu purchased by each customer?</li>
   <li>What is the most purchased item on the menu and how many times was it purchased by all customers?</li>
   <li>Which item was the most popular for each customer?</li>
   <li>Which item was purchased first by the customer after they became a member?</li>
