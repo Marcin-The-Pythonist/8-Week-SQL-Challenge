@@ -87,7 +87,7 @@ Improving the loyalty program and evaluating its results.
   LIMIT 1
   ```
    ![image](https://github.com/user-attachments/assets/0e26eae8-e8ea-4a46-b0f5-9e65b6f04659)
-  <li><h2>Which item was the most popular for each customer?</h2></li>
+  <h2><li>Which item was the most popular for each customer?</li></h2>
    <h3>Thought Process💭</h3>
   <ul>
     <li>First, I created a temporary table with the information I needed to answer the question.</li>
@@ -113,7 +113,7 @@ That's why it's easier to address the first element.</li>
   WHERE RANK = 1
   ```
   ![image](https://github.com/user-attachments/assets/1cee2589-a275-467f-9c1c-b329a9464b23)
-  <li><h2>Which item was purchased first by the customer after they became a member?</h2></li>
+  <h2><li>Which item was purchased first by the customer after they became a member?</li></h2>
    <h3>Thought Process💭</h3>
    <ul>
      <li>Thought how to separate orders before and after obtaining a membership.</li>
