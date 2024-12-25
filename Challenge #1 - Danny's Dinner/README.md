@@ -46,7 +46,7 @@ Improving the loyalty program and evaluating its results.
   ORDER BY customer_id
   ```
 
-  <li>item from the menu purchased by each customer?</li>
+  <li>What was the first item from the menu purchased by each customer?</li>
   <li>What is the most purchased item on the menu and how many times was it purchased by all customers?</li>
   <li>Which item was the most popular for each customer?</li>
   <li>Which item was purchased first by the customer after they became a member?</li>
