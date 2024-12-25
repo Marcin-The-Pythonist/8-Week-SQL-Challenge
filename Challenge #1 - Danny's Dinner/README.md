@@ -70,7 +70,7 @@ Improving the loyalty program and evaluating its results.
   ```
 ![image](https://github.com/user-attachments/assets/795ede8c-1523-4049-8db0-11c4e6d40419)
 
-  <li>What is the most purchased item on the menu and how many times was it purchased by all customers?</li>
+  <li><h2>What is the most purchased item on the menu and how many times was it purchased by all customers?</h2></li>
    <h3>Thought Process💭</h3>
    <ul>
      <li>Join the Sales and the Menu tables to obtain the names of the products ordered.</li>
@@ -87,10 +87,35 @@ Improving the loyalty program and evaluating its results.
   LIMIT 1
   ```
    ![image](https://github.com/user-attachments/assets/0e26eae8-e8ea-4a46-b0f5-9e65b6f04659)
-  <li>Which item was the most popular for each customer?</li>
+  <li><h2>Which item was the most popular for each customer?</h2></li>
+   <h3>Thought Process💭</h3>
+  <ul>
+    <li>First, I created a temporary table with the information I needed to answer the question.</li>
+    <li>As in the previous question, I needed to find the first element within each group using the <b>RANK</b>function. This time, however, I <b>reversed RANK order</b></li>so that the most frequent elements are first. "Why?" you might ask. Because the <b>first element has a fixed value of 1, unlike the last element.</b> 
+Think of a scenario where one person buys only ramen and curry and the other person buys ramen, curry and sushi.
+For the person <b>no.1</b>, the last element is 2nd. 
+For the person <b>no.2</b>, the last element would be the 3rd one. 
+That's why it's easier to address the first element.
+    <li>Customer B appears 3 times in the table. It's because all the dishes are equally popular considering him.</li>
+  </ul> 
+  <h3>Code💻</h3>
+  
+  ```SQL
+  WITH temp_tab AS(
+  SELECT product_name, customer_id, COUNT(product_name) AS amount FROM dannys_diner.sales
+  INNER JOIN dannys_diner.menu
+  ON menu.product_id = sales.product_id
+  GROUP BY customer_id, product_name)
+  
+  SELECT * FROM(
+  SELECT RANK() OVER(PARTITION BY customer_id ORDER BY amount DESC), product_name, customer_id, amount FROM temp_tab
+  )
+  WHERE RANK = 1
+  ```
+  ![image](https://github.com/user-attachments/assets/1cee2589-a275-467f-9c1c-b329a9464b23)
   <li>Which item was purchased first by the customer after they became a member?</li>
   <li>Which item was purchased just before the customer became a member?</li>
   <li>What are the total items and amount spent for each member before they became a member?</li>
   <li>If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?</li>
-  <li>In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January?</li>
+  <li>In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customers A and B have at the end of January?</li>
 </ol>
