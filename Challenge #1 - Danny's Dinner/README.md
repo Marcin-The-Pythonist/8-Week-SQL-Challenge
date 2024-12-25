@@ -40,7 +40,7 @@ Improving the loyalty program and evaluating its results.
   </ul>
   <h3>Code💻</h3>
       
-  ```
+  ```SQL
   SELECT customer_id, COUNT(DISTINCT(order_date)) FROM dannys_diner.sales
   GROUP BY customer_id 
   ORDER BY customer_id
