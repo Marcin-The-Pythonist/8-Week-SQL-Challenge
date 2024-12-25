@@ -15,14 +15,14 @@ Improving the loyalty program and evaluating its results.
 <h3>Business questions</h3>
 <ol>
   <li>What is the total amount each customer spent at the restaurant?</li>
-  <h5>Thought Process</h5>
+  <h3>Thought Process</h3>
   <ul>
     <li>Discover that customers' IDs and purchase information are in separate tables.</li>
     <li>Join those tables on the common column(product_id).</li>
     <li>Aggregate the results by customer.</li>
   </ul>
-  <h5>Code</h5>
-  ```
+  <h3>Code</h3>
+  ```SQL
   SELECT sales.customer_id, SUM(menu.price) FROM dannys_diner.sales
   INNER JOIN dannys_diner.menu
   ON sales.product_id = menu.product_id
