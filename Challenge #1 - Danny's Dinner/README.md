@@ -117,9 +117,9 @@ That's why it's easier to address the first element.</li>
    <h3>Thought Process💭</h3>
    <ul>
      <li>Thought how to separate orders before and after obtaining a membership.</li>
-     <li>Joined the membership table and the sales table and calculated the difference between the membership start date and the order date. If the difference was negative or equal to 0 the transaction was made after obtaining the membership(Or on the same day)</li>
-     <li>Ranked the resulting query by the time difference and partitioned by customer(Descending because the value closest to 0 is the earliest one).</li>
-     <li>Wrapped the previous <b>RANK</b> query into a subquery so that I can extract the records <b>where RANK = 1</b></li>
+     <li>Joined the membership table and the sales table and calculated the difference between the membership start date and the order date. If the difference was negative or equal to 0 the transaction was made after obtaining the membership(Or on the same day).</li>
+     <li>Ranked the resulting query by the time difference and partitioned by customer(Descending because the value closest to 0 is the earliest one). Also joined the menu table to get products' name.</li>
+     <li>Wrapped the previous <b>RANK</b> query into a subquery so that I can extract the records <b>where RANK = 1.</b></li>
    </ul>
    <h3>Code💻</h3>
    
