@@ -30,6 +30,7 @@ Improving the loyalty program and evaluating its results.
   GROUP BY customer_id 
   ORDER BY customer_id
   ```
+![image](https://github.com/user-attachments/assets/2802fdb1-0796-4bd5-9eca-0eb87686cad8)
 
   <h2><li>How many days have each customer visited the restaurant?</li></h2>
    <h3>Thought Process💭</h3>
@@ -45,6 +46,7 @@ Improving the loyalty program and evaluating its results.
   GROUP BY customer_id 
   ORDER BY customer_id
   ```
+![image](https://github.com/user-attachments/assets/11ea8e9f-9226-4f5b-8711-14e7d8628cf2)
 
   <h2><li>What was the first item from the menu purchased by each customer?</li></h2>
     <h3>Thought Process💭</h3>
@@ -57,15 +59,34 @@ Improving the loyalty program and evaluating its results.
   <h3>Code💻</h3>
 
   ```SQL
-  SELECT product_name, customer_id FROM 
+  SELECT product_name, customer_id, order_date FROM 
   (
-  SELECT product_name, customer_id, RANK() OVER(PARTITION BY customer_id ORDER BY order_date) FROM dannys_diner.sales
+  SELECT order_date, product_name, customer_id, RANK() OVER(PARTITION BY customer_id ORDER BY order_date) FROM     
+  dannys_diner.sales
   INNER JOIN dannys_diner.menu
   ON sales.product_id = menu.product_id
   ) as merged
   WHERE RANK = 1
   ```
+![image](https://github.com/user-attachments/assets/795ede8c-1523-4049-8db0-11c4e6d40419)
+
   <li>What is the most purchased item on the menu and how many times was it purchased by all customers?</li>
+   <h3>Thought Process💭</h3>
+   <ul>
+     <li>Join the Sales and the Menu tables to obtain the names of the products ordered.</li>
+     <li>Count records grouped by the name of the dish.</li>
+   </ul>
+  <h3>Code💻</h3>
+  
+  ```SQL
+  SELECT COUNT(product_name) AS most_purchased, product_name FROM dannys_diner.sales
+  INNER JOIN dannys_diner.menu
+  ON sales.product_id = menu.product_id 
+  GROUP BY product_name
+  ORDER BY most_purchased DESC
+  LIMIT 1
+  ```
+   ![image](https://github.com/user-attachments/assets/0e26eae8-e8ea-4a46-b0f5-9e65b6f04659)
   <li>Which item was the most popular for each customer?</li>
   <li>Which item was purchased first by the customer after they became a member?</li>
   <li>Which item was purchased just before the customer became a member?</li>
