@@ -2,11 +2,15 @@
 <img src="https://8weeksqlchallenge.com/images/case-study-designs/1.png">
 <hr>
 <h3>Context</h3>
-Danny seriously loves Japanese food so in the beginning of 2021, he decides to embark upon a risky venture and opens up a cute little restaurant that sells his 3 favourite foods: sushi, curry and ramen.
-Danny’s Diner is in need of your assistance to help the restaurant stay afloat - the restaurant has captured some very basic data from their few months of operation but have no idea how to use their data to help them run the business.
+Danny seriously loves Japanese food, so at the beginning of 2021, he decided to embark upon a risky venture and opened a cute little restaurant that sells his three favourite foods: sushi, curry, and ramen.
+Danny’s Diner needs your assistance to help the restaurant stay afloat - it has captured some very basic data from its few months of operation. Still, it has no idea how to use its data to help them run the business.
 <hr>
 <h3>Business Objective</h3>
 Improving the loyalty program and evaluating its results. 
+<hr>
+<h3>Data Scheme</h3>
+![Danny's Diner](https://github.com/user-attachments/assets/41134560-47a3-4fb6-9d52-f1eb67df14bb)
+<hr>
 <h3>Business questions</h3>
 <ol>
   <li>What is the total amount each customer spent at the restaurant?</li>
@@ -16,7 +20,7 @@ Improving the loyalty program and evaluating its results.
   <li>Which item was the most popular for each customer?</li>
   <li>Which item was purchased first by the customer after they became a member?</li>
   <li>Which item was purchased just before the customer became a member?</li>
-  <li>What is the total items and amount spent for each member before they became a member?</li>
+  <li>What are the total items and amount spent for each member before they became a member?</li>
   <li>If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?</li>
   <li>In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January?</li>
 </ol>
