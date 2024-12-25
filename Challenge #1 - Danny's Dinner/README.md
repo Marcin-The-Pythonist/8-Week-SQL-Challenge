@@ -114,6 +114,35 @@ That's why it's easier to address the first element.</li>
   ```
   ![image](https://github.com/user-attachments/assets/1cee2589-a275-467f-9c1c-b329a9464b23)
   <li>Which item was purchased first by the customer after they became a member?</li>
+   <h3>Thought Process💭</h3>
+   <ul>
+     <li>Thought how to separate orders before and after obtaining a membership.</li>
+     <li>Joined the membership table and the sales table and calculated the difference between the membership start date and the order date. If the difference was negative or equal to 0 the transaction was made after obtaining the membership(Or on the same day)</li>
+     <li>Ranked the resulting query by the time difference and partitioned by customer(Descending because the value closest to 0 is the earliest one).</li>
+     <li>Wrapped the previous <b>RANK</b> query into a subquery so that I can extract the records <b>where RANK = 1</b></li>
+   </ul>
+   <h3>Code💻</h3>
+   
+   ```SQL
+/* JOIN data, select records where join_date - purchase_date <= 0 */
+WITH temp_tab AS(
+SELECT * FROM (SELECT AGE(join_date) - AGE(order_date) AS time_diff, sales.customer_id, sales.product_id FROM dannys_diner.sales
+INNER JOIN dannys_diner.members
+ON sales.customer_id = members.customer_id)
+WHERE time_diff <= make_interval() 
+)
+
+SELECT * FROM(
+SELECT time_diff, customer_id, product_name, RANK() OVER(PARTITION BY customer_id ORDER BY time_diff DESC) FROM (
+SELECT * FROM temp_tab 
+INNER JOIN dannys_diner.menu
+ON temp_tab.product_id = menu.product_id
+)
+)
+WHERE rank = 1
+```
+![image](https://github.com/user-attachments/assets/19ace48c-a5a2-497e-9e40-80d361abb1e9)
+
   <li>Which item was purchased just before the customer became a member?</li>
   <li>What are the total items and amount spent for each member before they became a member?</li>
   <li>If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?</li>
