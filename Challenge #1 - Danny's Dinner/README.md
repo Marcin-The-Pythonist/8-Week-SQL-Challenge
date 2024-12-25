@@ -9,6 +9,7 @@ Danny’s Diner needs your assistance to help the restaurant stay afloat - it ha
 Improving the loyalty program and evaluating its results. 
 <hr>
 <h3>Data Scheme</h3>
+
 ![Danny's Diner](https://github.com/user-attachments/assets/41134560-47a3-4fb6-9d52-f1eb67df14bb)
 <hr>
 <h3>Business questions</h3>
