@@ -22,13 +22,15 @@ Improving the loyalty program and evaluating its results.
     <li>Aggregate the results by customer.</li>
   </ul>
   <h3>Code</h3>
-  ```sql
+  
+  ```SQL
   SELECT sales.customer_id, SUM(menu.price) FROM dannys_diner.sales
   INNER JOIN dannys_diner.menu
   ON sales.product_id = menu.product_id
   GROUP BY customer_id 
   ORDER BY customer_id
   ```
+
   <li>How many days has each customer visited the restaurant?</li>
   <li>What was the first item from the menu purchased by each customer?</li>
   <li>What is the most purchased item on the menu and how many times was it purchased by all customers?</li>
