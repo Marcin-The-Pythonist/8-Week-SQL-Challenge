@@ -14,7 +14,7 @@ Improving the loyalty program and evaluating its results.
 <hr>
 <h3>Business questions</h3>
 <ol>
-  <li>What is the total amount each customer spent at the restaurant?</li>
+  <h2><li>What is the total amount each customer spent at the restaurant?</li></h2>
   <h3>Thought Process💭</h3>
   <ul>
     <li>Discover that customers' IDs and purchase information are in separate tables.</li>
