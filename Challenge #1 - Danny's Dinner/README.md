@@ -36,7 +36,7 @@ Improving the loyalty program and evaluating its results.
   <ul>
     <li>Count visits by counting order dates per customer</li>
     <li>Realize that customer could order more than one product</li>
-    <li>Modify the approach by counting <b>unique<b> dates per customer</li>
+    <li>Modify the approach by counting <b>unique</b> dates per customer</li>
   </ul>
   <h3>Code💻</h3>
       
