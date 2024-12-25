@@ -15,6 +15,20 @@ Improving the loyalty program and evaluating its results.
 <h3>Business questions</h3>
 <ol>
   <li>What is the total amount each customer spent at the restaurant?</li>
+  <h5>Thought Process</h5>
+  <ul>
+    <li>Discover that customers' IDs and purchase information are in separate tables.</li>
+    <li>Join those tables on the common column(product_id).</li>
+    <li>Aggregate the results by customer.</li>
+  </ul>
+  <h5>Code</h5>
+  ```
+  SELECT sales.customer_id, SUM(menu.price) FROM dannys_diner.sales
+  INNER JOIN dannys_diner.menu
+  ON sales.product_id = menu.product_id
+  GROUP BY customer_id 
+  ORDER BY customer_id
+  ```
   <li>How many days has each customer visited the restaurant?</li>
   <li>What was the first item from the menu purchased by each customer?</li>
   <li>What is the most purchased item on the menu and how many times was it purchased by all customers?</li>
