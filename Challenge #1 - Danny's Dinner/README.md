@@ -34,9 +34,9 @@ Improving the loyalty program and evaluating its results.
   <li>How many days has each customer visited the restaurant?</li>
    <h3>Thought Process💭</h3>
   <ul>
-    <li>Count visits by counting order dates per customer</li>
-    <li>Realize that customer could order more than one product</li>
-    <li>Modify the approach by counting <b>unique</b> dates per customer</li>
+    <li>Count visits by counting order dates per customer.r</li>
+    <li>Realize that customers could order more than one product.</li>
+    <li>Modify the approach by counting <b>unique</b> dates per customer.</li>
   </ul>
   <h3>Code💻</h3>
       
@@ -47,6 +47,24 @@ Improving the loyalty program and evaluating its results.
   ```
 
   <li>What was the first item from the menu purchased by each customer?</li>
+    <h3>Thought Process💭</h3>
+  <ul>
+    <li>Define data needed to answer the question: customer IDs and dish name</li>
+    <li>Identify that data exist in separate tables - join them</li>
+    <li>Now the step that took me the most time - formulate a proper question and answer it. How do I extract the earliest order date for each customer? After some research, I discovered the beauty of the <b>RANK</b> and the <b>PARTITION BY</b> function. You can think of them like this: <b>look at each customer</b> like a separate table and then <b>bring order</b> to their orders. Finally, stack the <I>"Imagined tables"</i> onto each other and voilà!
+      <li>I've also learned that <b>WHERE</b> statement is executed before <b>RANK</b>. Hence I contained <b>RANK</b> within the subquery to make sure it executes before <b>WHERE</b></li>
+  </ul>
+  <h3>Code💻</h3>
+
+  ```SQL
+  SELECT product_name, customer_id FROM 
+  (
+  SELECT product_name, customer_id, RANK() OVER(PARTITION BY customer_id ORDER BY order_date) FROM dannys_diner.sales
+  INNER JOIN dannys_diner.menu
+  ON sales.product_id = menu.product_id
+  ) as merged
+  WHERE RANK = 1
+  ```
   <li>What is the most purchased item on the menu and how many times was it purchased by all customers?</li>
   <li>Which item was the most popular for each customer?</li>
   <li>Which item was purchased first by the customer after they became a member?</li>
