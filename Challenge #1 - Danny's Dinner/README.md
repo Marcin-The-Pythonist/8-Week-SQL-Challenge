@@ -91,11 +91,11 @@ Improving the loyalty program and evaluating its results.
    <h3>Thought Process💭</h3>
   <ul>
     <li>First, I created a temporary table with the information I needed to answer the question.</li>
-    <li>As in the previous question, I needed to find the first element within each group using the <b>RANK</b>function. This time, however, I <b>reversed RANK order</b></li>so that the most frequent elements are first. "Why?" you might ask. Because the <b>first element has a fixed value of 1, unlike the last element.</b> 
-Think of a scenario where one person buys only ramen and curry and the other person buys ramen, curry and sushi.
-For the person <b>no.1</b>, the last element is 2nd. 
-For the person <b>no.2</b>, the last element would be the 3rd one. 
-That's why it's easier to address the first element.
+    <li>As in the previous question, I needed to find the first element within each group using the <b>RANK</b> function. This time, however, I <b>reversed RANK order</b> so that the most frequent elements are first. "Why?" you might ask. Because the <b>first element has a fixed value of 1, unlike the last element.</b><br>
+Think of a scenario where one person buys only ramen and curry and the other person buys ramen, curry and sushi.<br>
+For the person <b>no.1</b>, the last element is 2nd.<br>
+For the person <b>no.2</b>, the last element would be the 3rd one.<br>
+That's why it's easier to address the first element.</li>
     <li>Customer B appears 3 times in the table. It's because all the dishes are equally popular considering him.</li>
   </ul> 
   <h3>Code💻</h3>
