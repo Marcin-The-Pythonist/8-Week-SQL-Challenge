@@ -113,7 +113,7 @@ That's why it's easier to address the first element.</li>
   WHERE RANK = 1
   ```
   ![image](https://github.com/user-attachments/assets/1cee2589-a275-467f-9c1c-b329a9464b23)
-  <li>Which item was purchased first by the customer after they became a member?</li>
+  <li><h2>Which item was purchased first by the customer after they became a member?</h2></li>
    <h3>Thought Process💭</h3>
    <ul>
      <li>Thought how to separate orders before and after obtaining a membership.</li>
