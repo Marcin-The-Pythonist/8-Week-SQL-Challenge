@@ -150,8 +150,9 @@ WHERE rank = 1
       <li>The only thing that needs adjustment is the comparison part. Instead of a negative difference, I need only a positive one.</li>
       <li>As shown below, one record contains a month and negative days. It can be a bit confusing to read but it can be fixed with the <b>JUSTIFY_INTERVAL</b> function.</li>
     </ul>
+    ![image](https://github.com/user-attachments/assets/24a53aee-c4c2-4dad-bbe7-aec81329df1a)
+
     
-    ![image](https://github.com/user-attachments/assets/ae583f2a-6683-4829-b77f-2408236084d6)
     <h3>Code💻</h3>
     
     ```SQL
