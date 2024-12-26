@@ -143,13 +143,14 @@ WHERE rank = 1
 ```
 ![image](https://github.com/user-attachments/assets/19ace48c-a5a2-497e-9e40-80d361abb1e9)
 
-  <li>Which item was purchased just before the customer became a member?</li>
+  <h2><li>Which item was purchased just before the customer became a member?</li></h2>
     <h3>Thought Process💭</h3>
     <ul>
       <li>The logic is almost the same as in the previous question. I used the previous query and modified it.</li>
       <li>The only thing that needs adjustment is the comparison part. Instead of a negative difference, I need only a positive one.</li>
       <li>As shown below, one record contains a month and negative days. It can be a bit confusing to read but it can be fixed with the <b>JUSTIFY_INTERVAL</b> function.</li>
     </ul>
+    
     ![image](https://github.com/user-attachments/assets/ae583f2a-6683-4829-b77f-2408236084d6)
     <h3>Code💻</h3>
     
