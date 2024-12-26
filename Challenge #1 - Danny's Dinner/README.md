@@ -150,28 +150,29 @@ WHERE rank = 1
       <li>The only thing that needs adjustment is the comparison part. Instead of a negative difference, I need only a positive one.</li>
       <li>As shown below, one record contains a month and negative days. It can be a bit confusing to read but it can be fixed with the <b>JUSTIFY_INTERVAL</b> function.</li>
     </ul>
-    ![image](https://github.com/user-attachments/assets/24a53aee-c4c2-4dad-bbe7-aec81329df1a)
 
+   ![image](https://github.com/user-attachments/assets/d3b4697b-cb66-4962-8810-f84b818ea9cc)
+ 
+  
+  <h3>Code💻</h3>
     
-    <h3>Code💻</h3>
-    
-    ```SQL
-    WITH temp_tab AS(
-    SELECT * FROM (SELECT JUSTIFY_INTERVAL(AGE(join_date) - AGE(order_date)) AS time_diff, sales.customer_id, sales.product_id FROM dannys_diner.sales
-    INNER JOIN dannys_diner.members
-    ON sales.customer_id = members.customer_id)
-    WHERE time_diff >= make_interval() 
-    )
-    
-    SELECT * FROM(
-    SELECT time_diff, customer_id, product_name, RANK() OVER(PARTITION BY customer_id ORDER BY time_diff DESC) FROM (
-    SELECT * FROM temp_tab 
-    INNER JOIN dannys_diner.menu
-    ON temp_tab.product_id = menu.product_id
-    )
-    )
-    WHERE rank = 1
-    ```
+  ```SQL
+  WITH temp_tab AS(
+  SELECT * FROM (SELECT JUSTIFY_INTERVAL(AGE(join_date) - AGE(order_date)) AS time_diff, sales.customer_id, sales.product_id FROM dannys_diner.sales
+  INNER JOIN dannys_diner.members
+  ON sales.customer_id = members.customer_id)
+  WHERE time_diff >= make_interval() 
+  )
+  
+  SELECT * FROM(
+  SELECT time_diff, customer_id, product_name, RANK() OVER(PARTITION BY customer_id ORDER BY time_diff DESC) FROM (
+  SELECT * FROM temp_tab 
+  INNER JOIN dannys_diner.menu
+  ON temp_tab.product_id = menu.product_id
+  )
+  )
+  WHERE rank = 1
+  ```
   ![image](https://github.com/user-attachments/assets/ca41150a-99f4-480e-9ea3-b3f13bef7bc4)
 
   <li>What are the total items and amount spent for each member before they became a member?</li>
