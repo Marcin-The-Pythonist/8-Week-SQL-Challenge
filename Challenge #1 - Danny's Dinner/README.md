@@ -199,6 +199,8 @@ WHERE rank = 1
   WHERE order_date < join_date
   GROUP BY temp_tab.customer_id
   ```
+![image](https://github.com/user-attachments/assets/08378891-23bd-410f-acf9-b8ee181b1b2d)
+
   <li>If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?</li>
   <li>In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customers A and B have at the end of January?</li>
 </ol>
