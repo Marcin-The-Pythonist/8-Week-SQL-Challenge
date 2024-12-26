@@ -175,7 +175,30 @@ WHERE rank = 1
   ```
   ![image](https://github.com/user-attachments/assets/ca41150a-99f4-480e-9ea3-b3f13bef7bc4)
 
-  <li>What are the total items and amount spent for each member before they became a member?</li>
+  <h2><li>What are the total items and amount spent for each member before they became a member?</li></h2>
+   <h3>Thought Process💭</h3>
+   <ul>
+     <li>Consider data needed:<ul>
+       <li>SUM of prices</li>
+       <li>COUNT of products</li>
+       <li>GROUPED BY customer IDs</li>
+       <li>WHERE order_date < join_date</li>
+     </ul>
+    <li>Join all 3 tables as price, join_date, and order_date are in separate tables.</li>
+    </li>
+   </ul>
+  
+  <h3>Code💻</h3>
+  
+  ```SQL
+  WITH temp_tab AS (SELECT * FROM dannys_diner.sales
+  JOIN dannys_diner.menu ON menu.product_id = sales.product_id)
+  
+  SELECT SUM(price) AS total_spendings, COUNT(product_name) AS total_items, temp_tab.customer_id FROM temp_tab
+  JOIN dannys_diner.members ON members.customer_id = temp_tab.customer_id
+  WHERE order_date < join_date
+  GROUP BY temp_tab.customer_id
+  ```
   <li>If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?</li>
   <li>In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customers A and B have at the end of January?</li>
 </ol>
