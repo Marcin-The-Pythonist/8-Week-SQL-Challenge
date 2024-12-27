@@ -211,7 +211,7 @@ WHERE rank = 1
          <li>Names of dishes</li>
        </ul>
        </li>
-       <li>Now I need to calculate points for each product. To calculate it I will use the CASE WHEN statement. Points are 10 times the price for curry and ramen and 20 times the price for sushi.</li>
+       <li>Now I need to calculate points for each product. To calculate it I will use the CASE WHEN statement. Points are 10 times the price of curry and ramen and 20 times the price of sushi.</li>
        <li>Now I need to join the table with points to the table with customers' info and group the data by customers summing up points.</li>
      </ul>
 
@@ -233,4 +233,52 @@ ORDER BY customer_id
 ![image](https://github.com/user-attachments/assets/5cfb6497-fa76-4f1f-bf21-29c85c1e82ec)
 
   <h2><li>In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customers A and B have at the end of January?</li></h2>
+   <h3>Thought Process</h3>
+   <ul>
+	   <li>I will use the query I created for the previous task and modify it so that it multiplies everything by 20.</li>
+	   <li>Now I need to add the criteria:
+	   <ul>
+		   <li>The date is between the join date and the week later after the join date.</li>
+		   <li>Only customers A and B</li>
+		   <li>Only on January</li>
+	   </ul>
+	   </li>
+	   <li>I need to further modify the query. Delete the aggregation and include dates.</li>
+	   <li>Now I filter out any but A and B customers and ensure the date is January.</li>
+	   <li>Now I start to realize that I might have chosen a bad approach because the query starts to be spaghetti-like. Nevertheless, I will continue and see this bring me =)</li>
+	   <li>The next step would be making the query a temporary table and joining the members table.</li>
+	   <li> Next, I have to undo <b>x2</b> multiplier for anything(except sushi because it's always x2) for any transaction that was more than a week later after the join date or before the join date.</li>
+    </ul>
+    <h3>Code💻</h3>
+
+```SQL
+WITH default_points AS (
+SELECT customer_id, order_date, product_name,
+CASE
+	WHEN True THEN price * 20
+END AS points
+FROM dannys_diner.menu
+
+INNER JOIN dannys_diner.sales
+ON sales.product_id = menu.product_id
+
+WHERE customer_id != 'C' AND EXTRACT(MONTH FROM order_date) = 1
+ 
+ORDER BY customer_id
+)
+
+SELECT default_points.customer_id, 
+SUM(CASE
+	WHEN order_date - join_date > 6 OR order_date - join_date < 0 AND product_name != 'sushi' THEN points / 2
+	ELSE points
+END) AS points_updated
+FROM default_points
+
+INNER JOIN dannys_diner.members
+ON members.customer_id = default_points.customer_id
+
+GROUP BY default_points.customer_id
+```
+![image](https://github.com/user-attachments/assets/64edec17-76a4-4fce-a83f-cdef3d0bc8c5)
+
 </ol>
