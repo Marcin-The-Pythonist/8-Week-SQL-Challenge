@@ -214,23 +214,23 @@ WHERE rank = 1
        <li>Now I need to calculate points for each product. To calculate it I will use the CASE WHEN statement. Points are 10 times the price for curry and ramen and 20 times the price for sushi.</li>
        <li>Now I need to join the table with points to the table with customers' info and group the data by customers summing up points.</li>
      </ul>
-       <h3>Code💻</h3>
-       
-    ```SQL
-      SELECT customer_id, 
-      SUM(CASE
-        WHEN product_name = 'sushi' THEN price * 20
-        ELSE price * 10
-      END) AS points
-      FROM dannys_diner.menu
-      
-      INNER JOIN dannys_diner.sales
-      ON sales.product_id = menu.product_id
-      
-      GROUP BY customer_id
-      ORDER BY customer_id
-     ``` 
-  ![image](https://github.com/user-attachments/assets/28089d17-ed63-4bf5-95d7-6774d7bb7fa6)
+
+
+```SQL
+SELECT customer_id, 
+SUM(CASE
+	WHEN product_name = 'sushi' THEN price * 20
+	ELSE price * 10
+END) AS points
+FROM dannys_diner.menu
+
+INNER JOIN dannys_diner.sales
+ON sales.product_id = menu.product_id
+
+GROUP BY customer_id
+ORDER BY customer_id
+```
+![image](https://github.com/user-attachments/assets/5cfb6497-fa76-4f1f-bf21-29c85c1e82ec)
 
   <h2><li>In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customers A and B have at the end of January?</li></h2>
 </ol>
