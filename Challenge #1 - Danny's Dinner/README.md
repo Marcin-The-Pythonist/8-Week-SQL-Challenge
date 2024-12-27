@@ -70,7 +70,7 @@ Improving the loyalty program and evaluating its results.
   ```
 ![image](https://github.com/user-attachments/assets/795ede8c-1523-4049-8db0-11c4e6d40419)
 
-  <h2><li>What is the most purchased item on the menu and how many times was it purchased by all customers?/li></h2><
+  <h2><li>What is the most purchased item on the menu and how many times was it purchased by all customers?</li></h2>
    <h3>Thought Process💭</h3>
    <ul>
      <li>Join the Sales and the Menu tables to obtain the names of the products ordered.</li>
