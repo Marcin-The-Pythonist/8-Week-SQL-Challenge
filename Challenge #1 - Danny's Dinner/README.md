@@ -251,7 +251,7 @@ ORDER BY customer_id
     </ul>
     <h3>Code💻</h3>
 
-```SQL
+```postgreSQL
 WITH default_points AS (
 SELECT customer_id, order_date, product_name,
 CASE
