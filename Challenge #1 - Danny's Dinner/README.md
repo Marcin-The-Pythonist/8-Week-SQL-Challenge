@@ -251,7 +251,7 @@ ORDER BY customer_id
     </ul>
     <h3>Code💻</h3>
 
-```postgreSQL
+```SQL
 WITH default_points AS (
 SELECT customer_id, order_date, product_name,
 CASE
@@ -280,5 +280,6 @@ ON members.customer_id = default_points.customer_id
 GROUP BY default_points.customer_id
 ```
 ![image](https://github.com/user-attachments/assets/64edec17-76a4-4fce-a83f-cdef3d0bc8c5)
-
 </ol>
+<hr>
+<h3>I'm always eager to learn! That's why I would appreciate your feedback. If you spot any mistakes or have any tips I'm happy to hear about them! You can reach out to me at <i>marcin.kubowicz.analyst@gmail.com</i></h3>
