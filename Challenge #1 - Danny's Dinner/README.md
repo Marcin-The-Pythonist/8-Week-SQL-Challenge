@@ -70,7 +70,7 @@ Improving the loyalty program and evaluating its results.
   ```
 ![image](https://github.com/user-attachments/assets/795ede8c-1523-4049-8db0-11c4e6d40419)
 
-  <li><h2>What is the most purchased item on the menu and how many times was it purchased by all customers?</h2></li>
+  <h2><li>What is the most purchased item on the menu and how many times was it purchased by all customers?/li></h2><
    <h3>Thought Process💭</h3>
    <ul>
      <li>Join the Sales and the Menu tables to obtain the names of the products ordered.</li>
@@ -148,7 +148,7 @@ WHERE rank = 1
     <ul>
       <li>The logic is almost the same as in the previous question. I used the previous query and modified it.</li>
       <li>The only thing that needs adjustment is the comparison part. Instead of a negative difference, I need only a positive one.</li>
-      <li>As shown below, one record contains a month and negative days. It can be a bit confusing to read but it can be fixed with the <b>JUSTIFY_INTERVAL</b> function.</li>
+      <li>As shown below, one record contains a month and negative days. It can be confusing to read but can be fixed with the <b>JUSTIFY_INTERVAL</b> function.</li>
     </ul>
 
    ![image](https://github.com/user-attachments/assets/d3b4697b-cb66-4962-8810-f84b818ea9cc)
@@ -201,6 +201,36 @@ WHERE rank = 1
   ```
 ![image](https://github.com/user-attachments/assets/08378891-23bd-410f-acf9-b8ee181b1b2d)
 
-  <li>If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?</li>
-  <li>In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customers A and B have at the end of January?</li>
+  <h2><li>If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?</li></h2>
+     <h3>Thought Process💭</h3>
+     <ul>
+       <li>What data will I need:
+       <ul>
+         <li>The price of products</li>
+         <li>Customers' IDs</li>
+         <li>Names of dishes</li>
+       </ul>
+       </li>
+       <li>Now I need to calculate points for each product. To calculate it I will use the CASE WHEN statement. Points are 10 times the price for curry and ramen and 20 times the price for sushi.</li>
+       <li>Now I need to join the table with points to the table with customers' info and group the data by customers summing up points.</li>
+     </ul>
+       <h3>Code💻</h3>
+       
+    ```SQL
+      SELECT customer_id, 
+      SUM(CASE
+        WHEN product_name = 'sushi' THEN price * 20
+        ELSE price * 10
+      END) AS points
+      FROM dannys_diner.menu
+      
+      INNER JOIN dannys_diner.sales
+      ON sales.product_id = menu.product_id
+      
+      GROUP BY customer_id
+      ORDER BY customer_id
+     ``` 
+  ![image](https://github.com/user-attachments/assets/28089d17-ed63-4bf5-95d7-6774d7bb7fa6)
+
+  <h2><li>In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customers A and B have at the end of January?</li></h2>
 </ol>
