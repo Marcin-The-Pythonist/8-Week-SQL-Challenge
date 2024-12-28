@@ -11,6 +11,7 @@ Danny started by recruiting “runners” to deliver fresh pizza from Pizza Runn
 <hr>
 <h3>Data Scheme</h3>
 
-![image](https://github.com/user-attachments/assets/782cd87b-56d0-4c2a-974a-d30ecdd48e1b)
+![image](https://github.com/user-attachments/assets/da7788ea-f41e-48fe-9518-0eb78c565b82)
+
 <hr>
 <h3>Business questions</h3>
