@@ -1,4 +1,5 @@
-<h1>Case Study #1 - Pizza Runner</h1>
+<h1>Case Study #2 - Pizza Runner</h1>
+
 ![image](https://github.com/user-attachments/assets/bee175e7-c141-4919-bd57-f27af3e47fd8)
 <hr>
 <h3>Context</h3>
@@ -9,6 +10,7 @@ Danny was sold on the idea, but he knew that pizza alone was not going to help h
 Danny started by recruiting “runners” to deliver fresh pizza from Pizza Runner Headquarters (otherwise known as Danny’s house) and also maxed out his credit card to pay freelance developers to build a mobile app to accept orders from customers.
 <hr>
 <h3>Data Scheme</h3>
+
 ![image](https://github.com/user-attachments/assets/782cd87b-56d0-4c2a-974a-d30ecdd48e1b)
 <hr>
 <h3>Business questions</h3>
