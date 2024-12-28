@@ -7,5 +7,5 @@ It aims to showcase my ability to translate business tasks into technological re
 
 ## Table of Contents 📖
 <ol>
-  <h3><href src="https://github.com/Marcin-The-Pythonist/8-Week-SQL-Challenge/tree/main/Challenge%20%231%20-%20Danny's%20Dinner">Dannys Dinner</href></h3>
+  <h3><link src="https://github.com/Marcin-The-Pythonist/8-Week-SQL-Challenge/tree/main/Challenge%20%231%20-%20Danny's%20Dinner">Dannys Dinner</link></h3>
 </ol>
