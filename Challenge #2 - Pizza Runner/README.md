@@ -1,4 +1,4 @@
-<h1>Case Study #2 - Pizza Runner</h1>
+<h1>Case Study #2 - Pizza Runner🍕</h1>
 
 ![image](https://github.com/user-attachments/assets/bee175e7-c141-4919-bd57-f27af3e47fd8)
 <hr>
