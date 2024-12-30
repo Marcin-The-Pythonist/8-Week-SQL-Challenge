@@ -15,13 +15,13 @@ Danny started by recruiting “runners” to deliver fresh pizza from Pizza Runn
 
 <hr>
 <h1>Business questions❓</h1>
+
 <h2>Pizza Metrics</h2>
 <ol>
   <li>How many pizzas were ordered?</li>
   <h3>Thought Process💭</h3>
-  
   <ul>
-    <li>Access the ```runner_orders``` table and `COUNT` rows.</li>
+    <li>Access the ``runner_orders`` table and `COUNT` rows.</li>
   </ul>
   <h3>Code💻</h3>
   
