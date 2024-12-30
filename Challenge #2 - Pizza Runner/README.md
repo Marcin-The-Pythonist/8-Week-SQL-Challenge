@@ -18,7 +18,7 @@ Danny started by recruiting “runners” to deliver fresh pizza from Pizza Runn
 
 <h2>Pizza Metrics</h2>
 <ol>
-  <li>How many pizzas were ordered?</li>
+  <h3><li>How many pizzas were ordered?</li></h3>
   <h3>Code💻</h3>
   
   ```SQL
@@ -33,7 +33,7 @@ Danny started by recruiting “runners” to deliver fresh pizza from Pizza Runn
   </ul>
 
 
-  <li>How many unique customer orders were made?</li>
+  <h3><li>How many unique customer orders were made?</li></h3>
   <h3>Code💻</h3>
   
   ```SQL
@@ -47,7 +47,7 @@ Danny started by recruiting “runners” to deliver fresh pizza from Pizza Runn
     <li>There were 10 unique orders in total.</li>
   </ul>
 
-  <li>How many successful orders were delivered by each runner?</li>
+  <h3><li>How many successful orders were delivered by each runner?</li></h3>
   <h3>Code💻</h3>
   
   ```SQL
@@ -70,13 +70,9 @@ Notes:
   <ul>
     <li>Runner no.1 successfully delivered 4 orders.</li>
     <li>Runner no.2 successfully delivered 3 orders.</li>
-    <li>Runner no.3 successfully delivered 1 orders.</li>
+    <li>Runner no.3 successfully delivered 1 order.</li>
   </ul>
-
   
-  <ul>
-    <li></li>
-  </ul>
   <li>How many of each type of pizza was delivered?</li>
   <li>How many Vegetarian and Meatlovers were ordered by each customer?</li>
   <li>What was the maximum number of pizzas delivered in a single order?</li>
