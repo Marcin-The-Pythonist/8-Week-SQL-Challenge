@@ -18,7 +18,17 @@ Danny started by recruiting “runners” to deliver fresh pizza from Pizza Runn
 <h2>Pizza Metrics</h2>
 <ol>
   <li>How many pizzas were ordered?</li>
+  <h3>Thought Process💭</h3>
+  <ul>
+    <li>Access the `runner_orders` table and `COUNT` rows.</li>
+  </ul>
+  <h3>Code💻</h3>
+  
+  ```SQL
+  SELECT COUNT(order_id) FROM pizza_runner.runner_orders 
+  ```
   <li>How many unique customer orders were made?</li>
+  
   <li>How many successful orders were delivered by each runner?</li>
   <li>How many of each type of pizza was delivered?</li>
   <li>How many Vegetarian and Meatlovers were ordered by each customer?</li>
