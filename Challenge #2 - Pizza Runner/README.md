@@ -19,18 +19,64 @@ Danny started by recruiting “runners” to deliver fresh pizza from Pizza Runn
 <h2>Pizza Metrics</h2>
 <ol>
   <li>How many pizzas were ordered?</li>
-  <h3>Thought Process💭</h3>
-  <ul>
-     <li>Target <code>pizza.runner.runner_orders</code> and **COUNT** rows.</li>
-  </ul>
   <h3>Code💻</h3>
   
   ```SQL
   SELECT COUNT(order_id) FROM pizza_runner.runner_orders 
   ```
-  <li>How many unique customer orders were made?</li>
+
+  <h3>results🔢</h3>
   
+  ![image](https://github.com/user-attachments/assets/f9e3b6bd-e3b4-444c-a20e-02d961a84777)
+  <ul>
+  <li>14 pizzas were ordered in total.</li>
+  </ul>
+
+
+  <li>How many unique customer orders were made?</li>
+  <h3>Code💻</h3>
+  
+  ```SQL
+  SELECT COUNT(DISTINCT order_id) FROM pizza_runner.customer_orders
+  ```
+
+  <h3>results🔢</h3>
+  
+  ![image](https://github.com/user-attachments/assets/56563da0-de57-46d4-b7c9-45aa8aa13ae2)
+  <ul>
+    <li>There were 10 unique orders in total.</li>
+  </ul>
+
   <li>How many successful orders were delivered by each runner?</li>
+  <h3>Code💻</h3>
+  
+  ```SQL
+  SELECT 
+  runner_id, 
+  COUNT(COALESCE(cancellation, '0')) AS succesful_deliveries 
+  FROM pizza_runner.runner_orders
+  WHERE COALESCE(cancellation, '0') NOT LIKE '%Cancellation'
+  GROUP BY runner_id
+  ORDER BY runner_id
+  ```
+Notes:
+<ul>
+  <li>I used <code>COALESCE</code> because Postgresql struggle with comparing <code>NULL</code> and <code>VARCHAR</code></li>
+</ul>
+
+  <h3>results🔢</h3>
+  
+  ![image](https://github.com/user-attachments/assets/a9c161d6-16c3-4acc-a645-1d83fc35fb7f)
+  <ul>
+    <li>Runner no.1 successfully delivered 4 orders.</li>
+    <li>Runner no.2 successfully delivered 3 orders.</li>
+    <li>Runner no.3 successfully delivered 1 orders.</li>
+  </ul>
+
+  
+  <ul>
+    <li></li>
+  </ul>
   <li>How many of each type of pizza was delivered?</li>
   <li>How many Vegetarian and Meatlovers were ordered by each customer?</li>
   <li>What was the maximum number of pizzas delivered in a single order?</li>
