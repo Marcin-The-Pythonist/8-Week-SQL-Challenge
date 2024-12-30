@@ -31,7 +31,7 @@ Danny started by recruiting “runners” to deliver fresh pizza from Pizza Runn
   <ul>
   <li>14 pizzas were ordered in total.</li>
   </ul>
-
+  <hr>
 
   <h3><li>How many unique customer orders were made?</li></h3>
   <h3>Code💻</h3>
@@ -46,6 +46,7 @@ Danny started by recruiting “runners” to deliver fresh pizza from Pizza Runn
   <ul>
     <li>There were 10 unique orders in total.</li>
   </ul>
+  <hr>
 
   <h3><li>How many successful orders were delivered by each runner?</li></h3>
   <h3>Code💻</h3>
@@ -72,6 +73,7 @@ Notes:
     <li>Runner no.2 successfully delivered 3 orders.</li>
     <li>Runner no.3 successfully delivered 1 order.</li>
   </ul>
+  <hr>
   
   <li>How many of each type of pizza was delivered?</li>
   <li>How many Vegetarian and Meatlovers were ordered by each customer?</li>
