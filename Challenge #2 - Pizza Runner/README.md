@@ -13,8 +13,15 @@ Danny started by recruiting “runners” to deliver fresh pizza from Pizza Runn
 
 ![image](https://github.com/user-attachments/assets/da7788ea-f41e-48fe-9518-0eb78c565b82)
 
+<h2>Data Cleaning and transformation🧹</h2>
+<h3>Tasks and issues to address</h3>
+<ol>
+  <li>Null values in the <code>runner_orders, customer_orders, </code> tables.</li>
+  <li>Create a CTE to make further operations easier.</li>
+</ol>
+
 <hr>
-<h1>Business questions❓</h1>
+<h2>Solutions❓</h2>
 
 <h2>Pizza Metrics</h2>
 <ol>
@@ -47,35 +54,9 @@ Danny started by recruiting “runners” to deliver fresh pizza from Pizza Runn
     <li>There were 10 unique orders in total.</li>
   </ul>
   <hr>
-
   <h3><li>How many successful orders were delivered by each runner?</li></h3>
-  <h3>Code💻</h3>
-  
-  ```SQL
-  SELECT 
-  runner_id, 
-  COUNT(COALESCE(cancellation, '0')) AS succesful_deliveries 
-  FROM pizza_runner.runner_orders
-  WHERE COALESCE(cancellation, '0') NOT LIKE '%Cancellation'
-  GROUP BY runner_id
-  ORDER BY runner_id
-  ```
-Notes:
-<ul>
-  <li>I used <code>COALESCE</code> because Postgresql struggle with comparing <code>NULL</code> and <code>VARCHAR</code></li>
-</ul>
-
-  <h3>results🔢</h3>
-  
-  ![image](https://github.com/user-attachments/assets/a9c161d6-16c3-4acc-a645-1d83fc35fb7f)
-  <ul>
-    <li>Runner no.1 successfully delivered 4 orders.</li>
-    <li>Runner no.2 successfully delivered 3 orders.</li>
-    <li>Runner no.3 successfully delivered 1 order.</li>
-  </ul>
-  <hr>
-  
-  <li>How many of each type of pizza was delivered?</li>
+ <ul>
+ </ul>
   <li>How many Vegetarian and Meatlovers were ordered by each customer?</li>
   <li>What was the maximum number of pizzas delivered in a single order?</li>
   <li>For each customer, how many delivered pizzas had at least 1 change and how many had no changes?</li>
